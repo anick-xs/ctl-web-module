@@ -1,0 +1,222 @@
+/**
+  * 覆盖element-ui默认样式
+**/
+
+//左侧菜单
+.layout-header-aside-menu-side{
+  border-right: solid 1px #e6e6e6;
+  .el-menu{
+    border-right: none;
+  }
+}
+//element组件所有的 el-form-item
+.el-form-item{
+  margin-bottom: 0;
+  width: auto;
+}
+
+//弹窗样式
+.el-dialog{
+  min-width: 700px;
+  position: relative;
+  border-radius: 11px;
+  z-index: 1;
+  overflow: hidden;
+  .el-dialog__body{
+    padding: 0;
+
+  }
+  .el-dialog__header{
+    background-color: #fff;
+    padding: 10px;
+   // background:url("~@/assets/images/dialog.png") no-repeat;
+    background-size: 100% 100%;
+    height: 25px;
+    position: relative;
+    z-index: 3000;
+    border-bottom: 1px solid #D0D0D0;
+  }
+  .el-dialog__footer {
+    text-align: center;
+  }
+  .el-dialog__title{
+    color: #000;
+    font-size: 15px;
+  }
+  .el-dialog__headerbtn{
+    top: 15px;
+    .el-dialog__close{
+      color: #000;
+    }
+  }
+  //表单中嵌套表单
+  .minform{
+      .el-form{
+        min-height: auto;
+      }
+    }
+
+  .el-form{
+    max-height: 500px;
+    min-height: 270px;
+    padding: 20px;
+    overflow: auto;
+  }
+  //全选的时候
+  .el-checkbox.el-checkbox{
+    margin-left: 0;
+    margin-right: 30px !important;
+  }
+
+}
+
+//去掉顶部菜单下面有条小白线
+.el-menu.el-menu--horizontal{
+  border-bottom: none;
+}
+//去掉左侧菜单右边有条小白线，
+.layout-header-aside-menu-side{
+  border-right: none;
+}
+
+
+//搜索盒子-字在上面，输入框在下面
+//.searchForm{
+//  .el-form--inline .el-form-item__label{
+//    display: -webkit-box;
+//    line-height: 12px;
+//  }
+//}
+
+
+
+//表格
+.table-box{
+  //按钮
+  .el-button{
+    //icon
+    .iconfont{
+      font-size: 12px;
+    }
+  }
+  //按钮icon颜色
+  & button i {
+    &.icon-jia {
+      color: #67C23A;
+    }
+    &.icon-bianji {
+      color: #4A98FA;
+    }
+    &.icon-shanchu {
+      color: #F56C6C;
+    }
+    &.icon-qiyong {
+      color: #27D794;
+    }
+    &.icon-tingyong {
+      color: #FF78E0;
+    }
+  }
+}
+//文本框
+.el-textarea__inner{
+  font-family: Arial
+}
+
+// 时间控件 input框宽度
+.el-date-editor.el-input {
+  width: auto;
+}
+//上传组件border没有了，给它加上
+//.el-upload{
+//  border:1px solid #DCDFE6
+//}
+
+.el-select-dropdown.el-popper{
+  z-index: 3333 !important;
+}
+.el-radio:last-child{
+  margin-left: 20px;
+}
+//新增左边边距
+.modify-item{
+  /*margin-right: 120px;*/
+  margin-left: 100px;
+}
+
+
+/*活动管理页面详情中的表格样式*/
+.rootStyle .table-box{
+  padding: 10px 0px !important;
+}
+
+
+//修改富文本中的样式
+.descBox{
+  //富文本框中输入纯数字和字母强制换行
+  white-space:normal;
+  word-break:break-all;
+  //富文本框中段落样式
+  p{
+    background-color: #fff !important;
+    font-size: 16px !important;
+    margin: 3px !important;
+    line-height: 28px;
+    //text-indent:2em;
+    img{
+      max-width: 100%;
+    }
+
+  }
+}
+.summary{
+  //强制换行
+  white-space:normal;
+  word-break:break-all;
+}
+
+/*
+* 保存和取消
+*/
+.ben-btn{
+  border:none;
+  border-radius: 50px;
+  width: 100px;
+  margin: 0 20px;
+  color: #fff;
+  &:hover{
+    color:#fff;
+  }
+}
+//蓝色的按钮
+.blue-save{
+  @extend .ben-btn;
+  background: linear-gradient(to right, #90CAF9, #047EDF);
+  &:hover{
+    color:#fff;
+    background: linear-gradient(to right, #90CAF9, #047EDF);
+  }
+}
+//灰色的取消按钮
+.gray-cancel{
+  @extend .ben-btn;
+  background:linear-gradient(270deg,rgba(185,185,185,1) 0%,rgba(211,211,211,1) 100%);
+  &:hover{
+    color:#fff;
+    background:linear-gradient(270deg,rgba(185,185,185,1) 0%,rgba(211,211,211,1) 100%);
+  }
+}
+//组件置灰时候文字颜色
+.disabled-color{ color: #6c6c6d; }
+.el-input.is-disabled .el-input__inner{
+  @extend .disabled-color;
+}
+.el-cascader.is-disabled .el-cascader__label{
+  @extend .disabled-color;
+}
+.el-textarea.is-disabled .el-textarea__inner{
+  @extend .disabled-color;
+}
+.el-checkbox__input.is-disabled.is-checked .el-checkbox__inner::after{
+  border-color: #6c6c6d;
+}

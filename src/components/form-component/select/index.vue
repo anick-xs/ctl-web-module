@@ -5,37 +5,35 @@
 * remark:
 */
 <template>
-    <div style="margin-bottom: 20px;">
-        <el-form-item :label="model.name" :key="model.key" :prop="model.key" :rules="model.rules" >
-            <el-select
-                    size="small"
-                    :multiple="model.multiple && model.multiple"
-                    :filterable ="model.filterable && model.filterable"
-                    :popper-append-to-body="false"
-                    v-model="form[model.key]"
-                    @change="event => onChange(event, model, index,form,formModel)"
-                    :placeholder="'请选择'+model.name"
-                    :disabled="model.disabled"
-                    :prop="model.key">
-                <el-option v-for=" (opt,index) in model.child "
-                           :value="opt[model.colValue]"
-                           :label="opt[model.colName]"
-                           :disabled="opt.disabled"
-                           :key="index">
-                </el-option>
-            </el-select>
-        </el-form-item>
-    </div>
+    <el-form-item :label="model.name" :key="model.key" :prop="model.key" :rules="model.rules" >
+        <el-select
+                size="small"
+                :multiple="model.multiple && model.multiple"
+                :filterable ="model.filterable && model.filterable"
+                :popper-append-to-body="false"
+                v-model="formData[model.key]"
+                @change="event => onChange(event, model, index,formData,formModel)"
+                :placeholder="'请选择'+model.name"
+                :disabled="model.disabled"
+                :prop="model.key">
+            <el-option v-for=" (opt,index) in model.child "
+                       :value="opt[model.colValue]"
+                       :label="opt[model.colName]"
+                       :disabled="opt.disabled"
+                       :key="index">
+            </el-option>
+        </el-select>
+    </el-form-item>
 </template>
 
 <script>
     export default {
         name: "bb",
         props:{
-            form:[Object],
+            formData:[Object],
             model:[Object],
             formModel:[Object],
-            index:[String],
+            index:[String,Number],
             upKey:[String,Number]
         },
         methods:{
@@ -47,10 +45,13 @@
             }
         },
         created() {
+
         }
     }
 </script>
 
 <style scoped>
-
+    .el-select{
+        width: 100%;
+    }
 </style>

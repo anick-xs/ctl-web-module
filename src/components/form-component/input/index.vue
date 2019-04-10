@@ -5,22 +5,29 @@
 * remark:
 */
 <template>
-    <div style="margin-bottom: 20px;">
-        <el-form-item :label="model.name" :prop="model.key" :rules="model.rules">
-            <el-input v-model="form[model.key]" size="small"></el-input>
-        </el-form-item>
-    </div>
+    <el-form-item :label="model.name" :key="model.key" :prop="model.key" :rules="model.rules" v-if="!model.isShow">
+        <el-input size="small"
+                  :type="model.type"
+                  :rows="model.rows"
+                  :maxlength="model.maxlength"
+                  v-model.trim="formData[model.key]"
+                  :placeholder="'请输入'+model.name"
+                  :disabled="formModel.disabled || model.disabled"
+                  :clearable="!formModel.disabled">
+        </el-input>
+    </el-form-item>
 </template>
 
 <script>
     export default {
         name: "aa",
         props:{
-            form:[Object],
+            formData:[Object],
             model:[Object],
+            formModel:[Object],
         },
         created() {
-            //console.log(this.formModel)
+
         }
     }
 </script>
