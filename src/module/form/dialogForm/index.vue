@@ -1,70 +1,25 @@
 /**
 * User: wuxinshuang
-* Date: 2019/4/9
-* Time: 16:32
+* Date: 2019/4/11
+* Time: 17:02
 * remark:
 */
 <template>
     <div>
         <el-button size="small" @click="btn">弹窗表单</el-button>
-       <!-- <dialog-form :visible.sync="visible" :module="dialogModel"></dialog-form>-->
         <dialog-form
                 :dialogVisible.sync="dialogVisible"
                 :dialogModel="dialogModel"
                 :dialogFormData.sync="dialogFormData">
         </dialog-form>
-        <search-form
-                :searchModel="searchModel"
-                :formData.sync="formData"
-                :loading.sync="loading"
-                @refreshTable="getList(1)"
-        ></search-form>
     </div>
 </template>
 
 <script>
     export default {
-        name: "demo",
+        name: "index",
         data(){
             return{
-                /**
-                 * 搜索
-                 * */
-                formData:{},
-                loading:false,
-                searchModel:{
-                    category: {
-                        key: 'category',
-                        elemType: 'select',
-                        name: '活动分类',
-                        colValue: 'id',
-                        colName: 'roleName',
-                        child: [{ id:'1',roleName:'a'},{ id:'2',roleName:'b'}],
-                        handleChange:(event, model, index,formData,formModel) =>{
-                            console.log(event, model, index,formData,formModel)
-                            if(event === '1'){
-                                formModel.status.show = true
-                            }else{
-                                formModel.status.show = false
-                            }
-                        }
-                    },
-                    status: {
-                        key: 'status',
-                        elemType: 'select',
-                        name: '状态',
-                        colValue: 'value',
-                        colName: 'label',
-                        child:[]
-                       // child: this.turnArray(selectChildData.publish, 'label', 'value', true),
-                    },
-                    query: {
-                        key: 'query',
-                        elemType: 'input',
-                        name: '关键字',
-                        placeholder:'请输入活动名称',
-                    },
-                },
                 /**
                  * 弹窗
                  * */
@@ -95,7 +50,7 @@
                             key: 'userName',
                             elemType: 'input',
                             name: '姓名',
-                           // rules: this.check_rules({required: true}),
+                            // rules: this.check_rules({required: true}),
                         },
 
                     },
@@ -135,9 +90,6 @@
             btn(){
                 this.dialogVisible = true;
             },
-            getList(){
-                console.log(this.formData)
-            }
         }
     }
 </script>

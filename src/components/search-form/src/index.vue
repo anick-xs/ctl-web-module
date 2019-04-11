@@ -43,8 +43,10 @@
 </template>
 <script>
     const files = require.context('../../form-component', true ,/\.vue$/);
+    import mixins from '@/components/mixins'
     export default {
         name: "SearchForm",
+        mixins:[mixins],
         props:{
             //搜索表单json结构
             searchModel: {
@@ -80,23 +82,46 @@
                 key:0,
             }
         },
+        watch:{
+            searchModel:{
+                handler(curVal,oldVal){
+                    this._createdData(this.searchModel,this.formData)
+                },
+                deep:true
+            }
+        },
         methods:{
+            //更新key值，重新渲染
             upKey(){
-
+                this.key++;
+                this._createdData(this.searchModel,this.formData); //重新获取值
             },
             searchBtn(){
-
+                let formDataDefault = JSON.parse(JSON.stringify(this.formData));
+                this.$emit('update:formData',formDataDefault);
+                //默认分页为1
+                this.$emit('refreshTable',1);
             },
-            reset(){
-
+            reset(formName){
+                this.$refs[formName].resetFields();
+                this.$emit('clearSelect');  //重置后清除门店的下拉列表选项
             }
         },
         created() {
+            //获取小组件 start
             const modules = {};
             files.keys().forEach(key => {
                 modules[key.replace(/(\.\/|\/index.vue)/g, '')] = files(key).default
             });
             this.modules = modules;
+            //初始化
+            this._createdData(this.searchModel,this.formData);
+            // 按下回车搜索
+            window.onkeydown = (e) => {
+                if(window.event.keyCode === 13) {
+                    this.searchBtn();
+                }
+            }
         }
     }
 </script>

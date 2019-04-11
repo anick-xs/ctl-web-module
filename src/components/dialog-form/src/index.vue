@@ -10,7 +10,7 @@
             :top="dialogModel.top"
             :before-close="dialogClose"
             :key="dialogKey">
-            <el-form :model="formData" ref="formData" label-width="100px">
+            <el-form :model="form" ref="form" label-width="100px">
                 <div v-for="(model,index) in dialogModel.formModel" :key="index + key">
                     <template v-for="(item,itemKey) in modules">
                         <component
@@ -20,7 +20,7 @@
                                 :key="index+itemKey"
                                 @upKey="upKey"
                                 :index="index"
-                                :formData.sync="formData"
+                                :formData.sync="form"
                                 :model="model"
                                 :formModel.sync="dialogModel.formModel">
                         </component>
@@ -33,7 +33,7 @@
                             :key="index"
                             :type="btn.type"
                             :size="btn.size"
-                            @click.native="btn.method(thisPint, 'formData', btn, formData, createFormModel)"
+                            @click.native="btn.method(thisPint, 'form', btn, form, formDataDefault)"
                             :class="btn.className"
                             :loading="btn.loading">
                         {{btn.value}}
@@ -45,8 +45,10 @@
 
 <script>
     const files = require.context('../../form-component', true ,/\.vue$/);
+    import mixins from '@/components/mixins'
     export default {
         name: "DialogForm",
+        mixins:[mixins],
         props:{
             //弹窗表单json数据
             dialogModel:{
@@ -72,29 +74,29 @@
         data(){
             return{
                 thisPint:this,  //获取this
-                formData:{}, //form值
+                form:{}, //form值
                 modules:{},  //组件
                 key:0, //key
                 dialogKey:0,
-                createFormModel: {},
+                formDataDefault: {},
             }
         },
         watch: {
             dialogFormData:{
                 handler(curVal){
                     this.formData = curVal;
-                    this.$emit('update:dialogFormData', this.formData)
+                    this.$emit('update:dialogFormData', this.form)
                 },
                 deep:true
             },
             dialogVisible:{
                 handler(curVal){
                     if(curVal){
-                        this._createdData()
+                        this._createdData(this.dialogModel.formModel,this.dialogFormData)
                     }else{
                         this.dialogKey++;
                         this.$emit('update:dialogFormData', {});
-                        this.$refs.formData.resetFields();
+                        this.$refs.form.resetFields();
                     }
                 },
                 deep:true
@@ -104,51 +106,14 @@
             //更新key值，重新渲染
             upKey(){
                 this.key++;
-                this._createdData(); //重新获取值
+                this._createdData(this.dialogModel.formModel,this.dialogFormData); //重新获取值
             },
             //弹窗关闭事件
             dialogClose(){
-                this.$refs.formData.resetFields();
+                this.$refs.form.resetFields();
                 this.$emit('update:dialogVisible', false);
                 this.$emit('update:disabled', false);
                 this.$emit('dialogClose');
-            },
-            //初始化
-            _createdData(){
-                let dialogFormModel = this.dialogModel.formModel;
-                let formModel ={};
-                for(let i in dialogFormModel){
-                    if(!dialogFormModel.hasOwnProperty(i)) continue;
-                    let item = dialogFormModel[i];
-                    if(item.defaultValue !== undefined){
-                        //如果formData有值，就不赋值
-                        if(!formModel[item.key]){
-                            formModel[item.key] = item.defaultValue
-                        }
-                    }else {
-                        if(item.key){
-                            /**
-                             * 类型判断
-                             * */
-                            if(item.keyType === 'Array'){
-                                formModel[item.key] = [];
-                            }else if(item.keyType === 'Object'){
-                                formModel[item.key] = {};
-                            }else{
-                                formModel[item.key] = "";
-                            }
-                        }
-                    }
-                    //如果是隐藏，则删除值
-                    if(item.show){
-                       delete formModel[i];
-                       delete this.dialogFormData[i];
-                    }
-                }
-                let formData = Object.assign(formModel,this.dialogFormData);
-                this.createFormModel = this.deepCopy(formData); // 初始的formdata值
-                this.formData = formData;
-                this.$emit('update:dialogFormData', formData)
             },
         },
         created(){
@@ -159,7 +124,7 @@
             });
             this.modules = modules;
             //初始化
-            this._createdData();
+            this._createdData(this.dialogModel.formModel,this.dialogFormData);
         }
     }
 </script>
@@ -198,7 +163,6 @@
             }
             .inputBox{
                 display: inline-block;
-                display: flex;
                 .el-form-item{
                     line-height: 40px;
                     padding-left: 10px;
