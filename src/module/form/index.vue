@@ -6,8 +6,8 @@
 */
 <template>
     <div>
-        <search-form-demo></search-form-demo>
         <dialog-form-demo></dialog-form-demo>
+        <search-form-demo></search-form-demo>
     </div>
 </template>
 

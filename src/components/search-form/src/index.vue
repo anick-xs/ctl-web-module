@@ -97,7 +97,7 @@
                 this._createdData(this.searchModel,this.formData); //重新获取值
             },
             searchBtn(){
-                let formDataDefault = JSON.parse(JSON.stringify(this.formData));
+                let formDataDefault = this.formData;
                 this.$emit('update:formData',formDataDefault);
                 //默认分页为1
                 this.$emit('refreshTable',1);

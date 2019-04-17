@@ -38,21 +38,14 @@
                             colName: 'roleName',
                             child: [{ id:'1',roleName:'a'},{ id:'2',roleName:'b'}],
                             handleChange:(event, model, index,formData,formModel) =>{
-                                console.log(event, model, index,formData,formModel)
-                                if(event === '1'){
-                                    formModel.userName.show = true
-                                }else{
-                                    formModel.userName.show = false
-                                }
+                                formModel.userName.show = event === '1';
                             }
                         },
                         userName: {
                             key: 'userName',
                             elemType: 'input',
                             name: '姓名',
-                            // rules: this.check_rules({required: true}),
                         },
-
                     },
                     //底部按钮配置
                     bottomBtn:[

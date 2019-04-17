@@ -34,28 +34,13 @@
                         colName: 'roleName',
                         child: [{ id:'1',roleName:'a'},{ id:'2',roleName:'b'}],
                         handleChange:(event, model, index,formData,formModel) =>{
-                            console.log(event, model, index,formData,formModel)
-                            if(event === '1'){
-                                formModel.status.show = true
-                            }else{
-                                formModel.status.show = false
-                            }
+                            formModel.userName.show = event === '1';
                         }
                     },
-                    status: {
-                        key: 'status',
-                        elemType: 'select',
-                        name: '状态',
-                        colValue: 'value',
-                        colName: 'label',
-                        child:[]
-                        // child: this.turnArray(selectChildData.publish, 'label', 'value', true),
-                    },
-                    query: {
-                        key: 'query',
+                    userName: {
+                        key: 'userName',
                         elemType: 'input',
-                        name: '关键字',
-                        placeholder:'请输入活动名称',
+                        name: '姓名',
                     },
                 },
             }
