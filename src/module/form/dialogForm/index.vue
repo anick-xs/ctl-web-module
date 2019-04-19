@@ -16,8 +16,10 @@
 </template>
 
 <script>
+    import mixins from '@/module/form/formMixins'
     export default {
         name: "index",
+        mixins:[mixins],
         data(){
             return{
                 /**
@@ -29,24 +31,7 @@
                     title:'组件',
                     labelWidth: '14%',
                     width: '45%',
-                    formModel: {
-                        roleIdList: {
-                            key: 'roleIdList',
-                            elemType: 'select',
-                            name: '角色',
-                            colValue: 'id',
-                            colName: 'roleName',
-                            child: [{ id:'1',roleName:'a'},{ id:'2',roleName:'b'}],
-                            handleChange:(event, model, index,formData,formModel) =>{
-                                formModel.userName.show = event === '1';
-                            }
-                        },
-                        userName: {
-                            key: 'userName',
-                            elemType: 'input',
-                            name: '姓名',
-                        },
-                    },
+                    formModel: {},
                     //底部按钮配置
                     bottomBtn:[
                         {
@@ -83,6 +68,9 @@
             btn(){
                 this.dialogVisible = true;
             },
+        },
+        created() {
+            this.dialogModel.formModel = this.model;
         }
     }
 </script>

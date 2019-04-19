@@ -10,14 +10,16 @@
                 :searchModel="searchModel"
                 :formData.sync="formData"
                 :loading.sync="loading"
-                @refreshTable="getList(1)"
-        ></search-form>
+                @refreshTable="getList(1)">
+        </search-form>
     </div>
 </template>
 
 <script>
+    import mixins from '@/module/form/formMixins'
     export default {
         name: "index",
+        mixins:[mixins],
         data(){
             return{
                 /**
@@ -25,30 +27,16 @@
                  * */
                 formData:{},
                 loading:false,
-                searchModel:{
-                    category: {
-                        key: 'category',
-                        elemType: 'select',
-                        name: '活动分类',
-                        colValue: 'id',
-                        colName: 'roleName',
-                        child: [{ id:'1',roleName:'a'},{ id:'2',roleName:'b'}],
-                        handleChange:(event, model, index,formData,formModel) =>{
-                            formModel.userName.show = event === '1';
-                        }
-                    },
-                    userName: {
-                        key: 'userName',
-                        elemType: 'input',
-                        name: '姓名',
-                    },
-                },
+                searchModel:{},
             }
         },
         methods:{
             getList(){
                 console.log(this.formData)
             }
+        },
+        created() {
+            this.searchModel = this.model;
         }
     }
 </script>

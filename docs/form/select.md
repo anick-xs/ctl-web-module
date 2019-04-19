@@ -1,13 +1,13 @@
-# input 类型
+# select 类型
 ``` js
-  input: {
-     key: 'input',
-     elemType: 'input',
+  select: {
+     key: 'select',
+     elemType: 'select',
      name: '关键词',
+     colValue: 'value',
+     colName: 'label',
+     child:[],
      placeholder: '输入版本号/更新内容'，
-     type:'text',
-     rows:2,
-     maxlength:50,
      disabled:true,
      defaultValue:'',
      handleChange:(event, model, index,formData,formModel) =>{
@@ -23,11 +23,13 @@
 | keyType | value类型    |    String | String，Array，Object | String |
 | elemType      | 组件类型      |   String | input,select |  |
 | name | 组件名称      |    String |  |  |
+| child | 子级    |   Array |  |  |
+| colValue | 子级-value    |   String |  |  |
+| colName | 子级-label    |   String |  |  |
 | placeholder | placeholder值      |    String |  |  |
-| type | 类型      |    String |  text，textarea 和其他 原生 input 的 type 值 | text |
-| rows | 输入框行数，只对 `type="textarea"` 有效      |    Number |  |  |
-| maxlength | 最大输入值      |    Number |  |  |
 | disabled | 禁用      |    Boolean |  |  |
+| multiple | 是否多选      |    Boolean |  | false |
+| filterable | 是否可搜索      |    Boolean |  | false |
 | defaultValue | 默认值    |    String |  |  |
 
 - **事件 Events**

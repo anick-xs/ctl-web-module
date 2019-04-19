@@ -1,7 +1,7 @@
 <template>
     <div class="form-box searchForm">
         <el-form :inline="true" ref="searchForm" :model="form" label-width="80px">
-            <div class="item" v-for="(model,index) in searchModel" :key="index + key">
+            <template class="item" v-for="(model,index) in searchModel" >
                 <template v-for="(item,itemKey) in modules">
                     <component
                             style="margin-bottom: 20px;"
@@ -14,14 +14,15 @@
                             :model="model"
                             :formModel.sync="searchModel">
                     </component>
+                    <slot v-if="model.elemType === itemKey && !model.show" :name="model.key"></slot>
                 </template>
-            </div>
+            </template>
             <div class="btn">
                 <el-form-item >
                     <el-button
                             icon="el-icon-search"
                             size="small"
-                            @click="searchBtn()"
+                            @click="searchBtn('searchForm')"
                             id="searchBtn"
                             class="btn-active"
                             v-if="searchShow"
@@ -31,7 +32,7 @@
                     <el-button
                             icon="el-icon-refresh"
                             size="small"
-                            @click="reset('formDataDefault')"
+                            @click="reset('searchForm')"
                             id="reset"
                             class="reset"
                             v-if="resetShow"
@@ -96,11 +97,18 @@
                 this.key++;
                 this._createdData(this.searchModel,this.formData); //重新获取值
             },
-            searchBtn(){
-                let formDataDefault = this.formData;
-                this.$emit('update:formData',formDataDefault);
-                //默认分页为1
-                this.$emit('refreshTable',1);
+            searchBtn(formName){
+                this.$refs[formName].validate((valid) => {
+                    if (valid) {
+                        let formDataDefault = this.formData;
+                        this.$emit('update:formData',formDataDefault);
+                        //默认分页为1
+                        this.$emit('refreshTable',1);
+                    } else {
+                        console.log('error submit!!');
+                        return false;
+                    }
+                });
             },
             reset(formName){
                 this.$refs[formName].resetFields();

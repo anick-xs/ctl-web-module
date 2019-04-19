@@ -221,3 +221,16 @@
   border-color: #6c6c6d;
 }
 
+//单选款和输入框检验时候提示语错位的问题
+.radioAndInput {
+  .first{
+    .el-form-item__error {
+      left: 40px;
+    }
+  }
+  .last{
+    .el-form-item__error {
+      left: 50px;
+    }
+  }
+}

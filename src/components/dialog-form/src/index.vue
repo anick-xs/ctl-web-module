@@ -10,8 +10,8 @@
             :top="dialogModel.top"
             :before-close="dialogClose"
             :key="dialogKey">
-            <el-form :model="form" ref="form" label-width="100px">
-                <div v-for="(model,index) in dialogModel.formModel" :key="index + key">
+            <el-form :model="form" ref="dialogForm" label-width="100px">
+                <template v-for="(model,index) in dialogModel.formModel" >
                     <template v-for="(item,itemKey) in modules">
                         <component
                                 style="margin-bottom: 15px;"
@@ -24,8 +24,9 @@
                                 :model="model"
                                 :formModel.sync="dialogModel.formModel">
                         </component>
+                        <slot v-if="model.elemType === itemKey && !model.show" :name="model.key"></slot>
                     </template>
-                </div>
+                </template>
             </el-form>
             <div class="dialog-footer" v-if="!disabled && !dialogModel.disabled">
                 <template v-for="(btn,index) in dialogModel.bottomBtn">
@@ -33,7 +34,7 @@
                             :key="index"
                             :type="btn.type"
                             :size="btn.size"
-                            @click.native="btn.method(thisPint, 'form', btn, form, formDataDefault)"
+                            @click.native="btn.method(thisPint, 'dialogForm', btn, form, formDataDefault)"
                             :class="btn.className"
                             :loading="btn.loading">
                         {{btn.value}}
@@ -94,9 +95,8 @@
                     if(curVal){
                         this._createdData(this.dialogModel.formModel,this.dialogFormData)
                     }else{
-                        this.dialogKey++;
                         this.$emit('update:dialogFormData', {});
-                        this.$refs.form.resetFields();
+                        this.$refs.dialogForm.resetFields();
                     }
                 },
                 deep:true
@@ -110,7 +110,7 @@
             },
             //弹窗关闭事件
             dialogClose(){
-                this.$refs.form.resetFields();
+                this.$refs.dialogForm.resetFields();
                 this.$emit('update:dialogVisible', false);
                 this.$emit('update:disabled', false);
                 this.$emit('dialogClose');

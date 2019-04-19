@@ -20,7 +20,14 @@ module.exports = {
                    collapsable: true,
                    children: [
                        ['/form/form', 'form'],
-                       ['/form/input', 'input'],
+                       ['/form/input', 'input 输入框'],
+                       ['/form/inputRange', 'inputRange 范围输入框'],
+                       ['/form/select', 'select 选择器'],
+                       ['/form/cascade', 'cascade 级联选择器'],
+                       ['/form/radioAndInput', 'radioAndInput 单选和输入框组合'],
+                       ['/form/radio', 'radio 单选框'],
+                       ['/form/checkbox', 'checkbox 多选框'],
+                       ['/form/image', 'image 图片'],
                    ]
                }
            ]
