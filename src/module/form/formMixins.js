@@ -1,3 +1,4 @@
+import area from '@/module/form/area.json'
 export default {
     data() {
         return {
@@ -95,17 +96,48 @@ export default {
                         formData.checkbox = event ? arr : [];
                     }
                 },
-                image:{
-                    key:'image',
-                    elemType:"image",
-                    name:'图片',
-                    width:'300',
-                    defaultValue: 'http://yundianbo.banbanjd.cn/image/cover/727E90E45A4D41C19BCB1D77ECD25EFF-6-2.png'
-                }
+                //图片
+                // image:{
+                //     key:'image',
+                //     elemType:"image",
+                //     name:'图片',
+                //     width:'300',
+                //     defaultValue: 'http://yundianbo.banbanjd.cn/image/cover/727E90E45A4D41C19BCB1D77ECD25EFF-6-2.png'
+                // },
+                //地区
+                regionCodeArr: {
+                    key: 'regionCodeArr',
+                    keyType:'Array',
+                    elemType: 'distPicker',
+                    name: '所属地区',
+                    lastCode:'regionCode',
+                    colValue: 'regionCode',
+                    colName: 'regionName',
+                    hideArea:true,
+                    showCountry:true,
+                    child: area
+                },
+                //编辑器
+              /*  quill:{
+                    key:'quill',
+                    elemType:"quill",
+                    name:'活动详情',
+                    rules:[],
+                },*/
+                doubleDate: {
+                    startData: 'startData',
+                    endData: 'endData',
+                    elemType: 'doubleDate',
+                    name: '注册时间',
+                    placeholder: '请选择时间',
+                },
             },
         }
     },
     methods:{
+
+    },
+    created(){
 
     }
 }

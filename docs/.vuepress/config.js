@@ -28,6 +28,9 @@ module.exports = {
                        ['/form/radio', 'radio 单选框'],
                        ['/form/checkbox', 'checkbox 多选框'],
                        ['/form/image', 'image 图片'],
+                       ['/form/distPicker', 'distPicker 地区选择器'],
+                       ['/form/quill', 'quill 富文本'],
+                       ['/form/doubleDate', 'doubleDate 双时间'],
                    ]
                }
            ]

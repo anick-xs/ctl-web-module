@@ -1,5 +1,5 @@
 <template>
-    <el-form-item :label="model.name" required>
+    <el-form-item :label="model.name" >
         <div class="radioAndInput">
             <!-- 单选框 -->
             <el-radio-group v-model="formData[model.radioKey]" :style="{width:model.width}">

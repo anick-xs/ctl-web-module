@@ -13,8 +13,9 @@ export default {
                 let item = formModel[i];
                 //如果组件有默认值，就赋值
                 if( item.defaultValue !== undefined  || item.defaultStartData || item.defaultEndData || item.radioDefaultValue !== undefined || item.inputFirstDefaultValue || item.inputLastDefaultValue){
-                    form[item.key] = item.defaultValue;
-                    if(item.startData|| item.endData){
+                    if(item.key){
+                        form[item.key] = item.defaultValue;
+                    }else  if(item.startData|| item.endData){
                         form[item.startData] = item.defaultStartData;
                         form[item.endData] = item.defaultEndData;
                     //单选框和输入框,因为这个组件有三个默认值
