@@ -1,4 +1,4 @@
-# distPicker 类型
+# doubleDate 类型
 ``` js
    doubleDate: {
       startData: 'startData',
