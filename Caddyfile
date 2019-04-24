@@ -16,6 +16,6 @@ rewrite /ui/module/ {
     to {path} {path}/ /ui/module/
 }
 
-rewrite /ui/module/docs/ {
+rewrite /ui/docs/{
     to {path} {path}/ /ui/docs/
 }
