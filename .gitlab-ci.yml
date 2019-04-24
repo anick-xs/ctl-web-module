@@ -21,7 +21,7 @@ build_js:
   stage: build_js
   script:
     - npm install
-    - rm -rf ./dist/doce/.vuepress/dist && npm run docs:build
+    - rm -rf ./doce/.vuepress/dist && npm run docs:build
     - rm -rf ./dist && npm run build
   tags:
     - global
