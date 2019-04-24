@@ -1,0 +1,52 @@
+variables:
+  ServiceName: "web-module"
+  ServiceVersion: "1.0"
+  DockerImageName: "registry.dev.chelizitech.com/saas/${ServiceName}:${ServiceVersion}-${CI_PIPELINE_ID}"
+
+cache:
+  paths:
+    - dist/
+    - node_modules/
+
+stages:
+  - build_js
+  - build_image
+  - deploy
+
+before_script:
+  - cd $CI_PROJECT_DIR
+
+build_js:
+  image: registry.dev.chelizitech.com/public/node:8.11.3-alpine
+  stage: build_js
+  script:
+    - npm install
+    - rm -rf ./dist && npm run build
+  tags:
+    - global
+  only:
+    - dev
+
+build_image:
+  image: registry.dev.chelizitech.com/public/citools:1
+  stage: build_image
+  script:
+    - docker login -u saas -p Abcd1234 http://registry.dev.chelizitech.com
+    - docker build -t $DockerImageName .
+    - docker push $DockerImageName
+  tags:
+    - global
+  only:
+    - dev
+
+deploy_test:
+  image: registry.dev.chelizitech.com/public/citools:1
+  stage: deploy
+  environment: test
+  script:
+    - dockerize -template deploy.yml | kubectl apply -f -
+  tags:
+    - global
+  only:
+    - dev
+
