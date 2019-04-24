@@ -7,6 +7,10 @@ export const constantRouterMap = [
         path: '/',
         component: layout,
     },
+    // {
+    //     path: '/docs',
+    //     component: () => import("../docs/.vuepress/dist/")
+    // },
 ];
 
 export const asyncRouterMap = [
@@ -26,5 +30,6 @@ export const asyncRouterMap = [
 
 export default new Router({
     base: "/ui/module/",
+    mode: 'history',
     routes:constantRouterMap.concat(asyncRouterMap)
 });
