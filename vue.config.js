@@ -14,7 +14,7 @@ let url ='http://manager.chetailian.net';
 
 const loginUrl = process.env.NODE_ENV === 'procution' ?  '/' : url;
 module.exports = {
-    publicPath:"/ui/module/",
+    //publicPath:"/ui/module/",
     lintOnSave: true,
     devServer: {
         port: 9535,

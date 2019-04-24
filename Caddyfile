@@ -12,6 +12,10 @@ header / {
     -Server
 }
 
-rewrite {
+rewrite /ui/module/ {
     to {path} {path}/ /ui/module/
+}
+
+rewrite /ui/module/docs/ {
+    to {path} {path}/ /ui/docs/
 }
