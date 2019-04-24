@@ -1,4 +1,5 @@
 # inputRange 类型
+![solar](/images/inputRange.png)
 ``` js
   inputRange: {
      key: 'inputRange',

@@ -1,4 +1,5 @@
 # select 类型
+![solar](/images/select.png)
 ``` js
   select: {
      key: 'select',

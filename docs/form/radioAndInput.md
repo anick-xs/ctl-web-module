@@ -1,4 +1,5 @@
 # radioAndInput 类型
+![solar](/images/radioAndInput.png)
 ``` js
   radioAndInput:{
       radioKey:'radioAndInput',

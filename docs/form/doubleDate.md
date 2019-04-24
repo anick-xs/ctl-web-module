@@ -1,4 +1,5 @@
 # doubleDate 类型
+![solar](/images/doubleDate.png)
 ``` js
    doubleDate: {
       startData: 'startData',

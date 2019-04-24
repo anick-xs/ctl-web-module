@@ -1,4 +1,5 @@
 # distPicker 类型
+![solar](/images/distPicker.png)
 ``` js
    regionCodeArr: {
       key: 'regionCodeArr',
