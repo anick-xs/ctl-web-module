@@ -16,10 +16,10 @@ footer: MIT Licensed | Copyright © 2019-che-tai-lian
 
 ``` bash
 # 安装
-npm --registry http://nexus.dev.chelizitech.com/nexus/content/repositories/npm/ install ctl-web-module
+npm install ctl-web-module@latest
 
 # 发布
-npm publish
+npm publish --registry http://nexus.dev.chelizitech.com/nexus/content/repositories/npm/
 
 # 文档编写
 vuepress dev

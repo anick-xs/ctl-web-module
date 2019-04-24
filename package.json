@@ -6,14 +6,9 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "publish": "npm publish",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
   },
-  "publishConfig": {
-    "registry": "http://nexus.dev.chelizitech.com/nexus/content/repositories/npm/"
-  },
-  "dependencies": {},
   "devDependencies": {
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
