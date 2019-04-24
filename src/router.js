@@ -25,6 +25,6 @@ export const asyncRouterMap = [
 ];
 
 export default new Router({
-    base: "/ui/manager/",
+    base: "/ui/module/",
     routes:constantRouterMap.concat(asyncRouterMap)
 });
