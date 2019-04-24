@@ -6,7 +6,7 @@
 */
 <template>
     <el-form-item :label="model.name" :key="model.key" :prop="model.key" :rules="model.rules" >
-       <!-- <upload v-model="formData[model.key]"
+        <upload v-model="formData[model.key]"
                 :formData="formData"
                 :path="model.path"
                 :type="model.type"
@@ -17,7 +17,7 @@
                 :coverUrl.sync="model.coverUrl"
                 @uploadOnChange="event => onChange(event, model, index,formData,formModel)"
                 :disabledIs="formModel.disabled || model.disabled || disabled">
-        </upload>-->
+        </upload>
     </el-form-item>
 </template>
 

@@ -6,12 +6,12 @@
 */
 <template>
     <div>
-        <search-form
+        <ctl-search-form
                 :searchModel="searchModel"
                 :formData.sync="formData"
                 :loading.sync="loading"
                 @refreshTable="getList(1)">
-        </search-form>
+        </ctl-search-form>
     </div>
 </template>
 

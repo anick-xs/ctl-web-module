@@ -7,11 +7,11 @@
 <template>
     <div>
         <el-button size="small" @click="btn">弹窗表单</el-button>
-        <dialog-form
+        <ctl-dialog-form
                 :dialogVisible.sync="dialogVisible"
                 :dialogModel="dialogModel"
                 :dialogFormData.sync="dialogFormData">
-        </dialog-form>
+        </ctl-dialog-form>
     </div>
 </template>
 
