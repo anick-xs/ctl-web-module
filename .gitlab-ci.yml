@@ -37,7 +37,7 @@ build_image:
   tags:
     - global
   only:
-    - dev
+    - master
 
 deploy_test:
   image: registry.dev.chelizitech.com/public/citools:1
@@ -48,5 +48,5 @@ deploy_test:
   tags:
     - global
   only:
-    - dev
+    - master
 
