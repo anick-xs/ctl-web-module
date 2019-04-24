@@ -3,7 +3,7 @@ gzip
 
 log stdout
 errors stdout
-
+browse
 root /root/web/
 
 header / {
