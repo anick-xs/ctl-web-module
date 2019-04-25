@@ -1,5 +1,5 @@
 # cascade 类型
-![solar](/images/cascade.png)
+![solar](/ui/docs/images/cascade.png)
 ``` js
   cascade:{
       key: 'cascade',

@@ -1,5 +1,5 @@
 # checkbox 类型
-![solar](/images/checkbox.png)
+![solar](/ui/docs/images/checkbox.png)
 ``` js
    checkbox:{
       key:'checkbox',

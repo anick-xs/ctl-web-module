@@ -1,5 +1,5 @@
 # input 类型
-![solar](/images/input.png)
+![solar](/ui/docs/images/input.png)
 ``` js
   input: {
      key: 'input',

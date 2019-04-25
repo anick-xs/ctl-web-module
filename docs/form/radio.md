@@ -1,5 +1,5 @@
 # radio 类型
-![solar](/images/radio.png)
+![solar](/ui/docs/images/radio.png)
 ``` js
    radio: {
       key: 'radio',

@@ -1,5 +1,5 @@
 # inputRange 类型
-![solar](/images/inputRange.png)
+![solar](/ui/docs/images/inputRange.png)
 ``` js
   inputRange: {
      key: 'inputRange',
