@@ -12,6 +12,10 @@ module.exports = {
         nav: [
             { text: 'Home', link: '/' },
             { text: '组件', link: '/form/form' },
+            {
+                text: 'GitHub',
+                link: 'http://git.dev.chelizitech.com/ctl/web/ctl-web-module'
+            }
         ],
        //侧边栏
        sidebar:{
