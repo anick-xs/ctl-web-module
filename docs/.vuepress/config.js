@@ -1,4 +1,5 @@
 module.exports = {
+    base: '/ui/docs/',
     title: '前端组件文档',  // 设置网站标题
     description : '爱用不用',
     head: [
