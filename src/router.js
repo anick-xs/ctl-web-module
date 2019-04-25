@@ -24,6 +24,11 @@ export const asyncRouterMap = [
             name:'form',
             meta: { title: '表单'},
             component: () => import('@/module/form/index.vue')
+        },{
+            path:'table',
+            name:'table',
+            meta: { title: '表格'},
+            component: () => import('@/module/table/index.vue')
         }]
     },
 ];
