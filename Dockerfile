@@ -5,7 +5,7 @@ COPY startup.sh /root/
 COPY Caddyfile /root/
 
 COPY dist /root/web/ui/module
-COPY docs /root/web/ui/module/docs/.vuepress/
+COPY docs/.vuepress/dist /root/web/ui/docs
 
 RUN chmod +x /root/startup.sh
 CMD ["./startup.sh"]
