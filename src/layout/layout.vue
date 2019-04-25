@@ -21,7 +21,7 @@
                         <el-menu-item :index="father.path" :id="father.path" :key="father.path">
                             <!--<i v-if="father.meta.icon" :class="`fas fa-${ father.meta.icon}`"></i>-->
                             <i class="el-icon-setting"></i>
-                            <span slot="title">{{father.meta.title}}</span>
+                            <span slot="title">  {{father.meta.title}}</span>
                         </el-menu-item>
                     </router-link>
                     <!-- 二级菜单 -->
@@ -29,11 +29,11 @@
                         <template slot="title">
                            <!-- <i v-if="father.meta.icon" :class="`fas fa-${ father.meta.icon}`"></i>&nbsp;-->
                             <i class="el-icon-setting"></i>
-                            <span>{{father.meta.title}}</span>
+                            <span>  {{father.meta.title}}</span>
                         </template>
                         <template v-for="(one,oneIndex) in father.children">
                             <span v-if="!one.hide" :to="father.path+'/'+one.path" @click="routerLink(father, one)" :key="one.path">
-                                <el-menu-item :index="thirdIndex(father, one)"><i class="fas fa-arrow-right right-icon"></i>{{one.meta.title}}</el-menu-item>
+                                <el-menu-item :index="thirdIndex(father, one)"><i class="fas fa-arrow-right right-icon"></i>  {{one.meta.title}}</el-menu-item>
                             </span>
                         </template>
                     </el-submenu>
