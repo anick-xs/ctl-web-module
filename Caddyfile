@@ -17,5 +17,5 @@ rewrite /ui/module/ {
 }
 
 rewrite /ui/module/docs/{
-    to {path} {path}/ /ui/docs/
+    to {path} {path}/ /ui/module/docs/
 }

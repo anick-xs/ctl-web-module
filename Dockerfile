@@ -5,7 +5,7 @@ COPY startup.sh /root/
 COPY Caddyfile /root/
 
 COPY dist /root/web/ui/module
-COPY docs /root/web/ui/docs
+COPY docs /root/web/ui/module/docs
 
 RUN chmod +x /root/startup.sh
 CMD ["./startup.sh"]
