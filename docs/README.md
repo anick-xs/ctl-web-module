@@ -19,7 +19,7 @@ footer: MIT Licensed | Copyright © 2019-che-tai-lian
 npm install ctl-web-module@latest
 
 # 发布
-npm publish --registry http://nexus.dev.chelizitech.com/nexus/content/repositories/npm/
+npm publish --registry http://nexus.dev.chelizitech.com/repository/npm/
 
 # 文档编写
 vuepress dev
