@@ -15,6 +15,9 @@ footer: MIT Licensed | Copyright © 2019-che-tai-lian
 ---
 
 ``` bash
+#设置npm源
+npm config set registry http://nexus.dev.chelizitech.com/repository/npm-all/
+
 # 安装
 npm install ctl-web-module@latest
 
