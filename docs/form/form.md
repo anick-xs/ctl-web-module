@@ -5,12 +5,12 @@
 
 ### searchForm 搜索组件
 ``` vue
-<search-form 
+<ctl-search-form 
     :searchModel="searchModel" 
     :formData.sync="formData" 
     :loading.sync="loading" 
     @refreshTable="getList()">
-<search-form/>
+</ctl-search-form>
 ```
 - **searchModel**：搜索表单数据源；
 - **formData**：表单值；
@@ -19,11 +19,11 @@
 
 ### dialogForm 弹窗组件
 ``` vue
-<dialog-form
+<ctl-dialog-form
     :dialogModel="dialogModel"
     :dialogFormData.sync="dialogFormData"
     :dialogVisible.sync="dialogVisible">
-</dialog-form>
+</ctl-dialog-form>
 ```
 - **dialogModel**：弹窗表单数据源；
 - **dialogFormData**：表单值；
@@ -37,17 +37,17 @@
 ``` vue
 <template>
     <div>
-        <search-form
+        <ctl-search-form
                 :searchModel="searchModel"
                 :formData.sync="formData"
                 :loading.sync="loading"
                 @refreshTable="getList(1)"
-        ></search-form>
-         <dialog-form
+        ></ctl-search-form>
+         <ctl-dialog-form
                 :dialogVisible.sync="dialogVisible"
                 :dialogModel="dialogModel"
                 :dialogFormData.sync="dialogFormData">
-        </dialog-form>
+        </ctl-dialog-form>
     </div>
 </template>
 <script>

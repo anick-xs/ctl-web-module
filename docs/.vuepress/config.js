@@ -25,6 +25,7 @@ module.exports = {
                    collapsable: true,
                    children: [
                        ['/form/form', 'form'],
+                       ['/form/table', 'table'],
                        ['/form/input', 'input 输入框'],
                        ['/form/inputRange', 'inputRange 范围输入框'],
                        ['/form/select', 'select 选择器'],

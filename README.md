@@ -7,11 +7,14 @@
 组件列子：http://ops.chetailian.net/ui/module/demo/form
 
 ``` bash
+#设置npm源
+npm config set registry http://nexus.dev.chelizitech.com/repository/npm-all/
+
 # 安装
 npm install ctl-web-module@latest
 
 # 发布
-npm publish --registry http://nexus.dev.chelizitech.com/nexus/content/repositories/npm/
+npm publish --registry http://nexus.dev.chelizitech.com/repository/npm/
 
 # 文档编写
 vuepress dev
