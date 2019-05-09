@@ -44,9 +44,9 @@
 </template>
 <script>
     const files = require.context('../../form-component', true ,/\.vue$/);
-    import mixins from '@/components/mixins'
+    import mixins from 'ctl-web-module/src/components/mixins'
     export default {
-        name: "SearchForm",
+        name: "CtlSearchForm",
         mixins:[mixins],
         props:{
             //搜索表单json结构

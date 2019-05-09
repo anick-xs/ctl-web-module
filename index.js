@@ -1,7 +1,10 @@
-import DialogForm from './src/components/dialog-form/index.js';
-
+import CtlDialogForm from 'ctl-web-module/src/components/dialog-form/index';
+import CtlSearchForm from 'ctl-web-module/src/components/search-form/index';
+import CtlTableBox from 'ctl-web-module/src/components/table-box/index';
 const components = [
-    DialogForm
+    CtlDialogForm,
+    CtlSearchForm,
+    CtlTableBox
 ];
 const install = function(Vue, opts = {}) {
     components.forEach(component => {
@@ -16,5 +19,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 export default {
     install,
-    DialogForm
+    CtlDialogForm,
+    CtlSearchForm,
+    CtlTableBox
 }

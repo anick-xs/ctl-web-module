@@ -46,9 +46,9 @@
 
 <script>
     const files = require.context('../../form-component', true ,/\.vue$/);
-    import mixins from '@/components/mixins'
+    import mixins from 'ctl-web-module/src/components/mixins'
     export default {
-        name: "DialogForm",
+        name: "CtlDialogForm",
         mixins:[mixins],
         props:{
             //弹窗表单json数据

@@ -39,7 +39,8 @@ module.exports = {
             .end();
         //设置 alias
         config.resolve.alias
-            .set('@', resolve('src'));
+            .set('@', resolve('src'))
+            .set('ctl-web-module/src', resolve('src'));
     }
 };
 

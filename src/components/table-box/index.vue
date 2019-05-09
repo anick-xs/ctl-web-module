@@ -179,7 +179,7 @@
 
 <script>
     export default {
-        name: "table-box",
+        name: "ctlTableBox",
         props:{
             //表格头部prop数据
             tableModel: {

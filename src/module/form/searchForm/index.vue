@@ -16,7 +16,7 @@
 </template>
 
 <script>
-    import mixins from '@/module/form/formMixins'
+    import mixins from 'ctl-web-module/src/module/form/formMixins'
     export default {
         name: "index",
         mixins:[mixins],
