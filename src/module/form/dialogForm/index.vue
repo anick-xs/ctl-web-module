@@ -70,6 +70,7 @@
             },
         },
         created() {
+
             this.dialogModel.formModel = this.model;
         }
     }

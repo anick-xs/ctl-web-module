@@ -1,3 +1,4 @@
+import axios from 'axios'
 export default {
     data() {
         return {
@@ -116,12 +117,13 @@ export default {
                     showCountry:true,
                 },
                 //编辑器
-              /*  quill:{
-                    key:'quill',
-                    elemType:"quill",
-                    name:'活动详情',
-                    rules:[],
-                },*/
+                // quill:{
+                //     key:'quill',
+                //     elemType:"quill",
+                //     name:'活动详情',
+                //     rules:[],
+                //     config: this.$config.ueditor
+                // },
                 doubleDate: {
                     startData: 'startData',
                     endData: 'endData',
@@ -129,6 +131,18 @@ export default {
                     name: '注册时间',
                     placeholder: '请选择时间',
                 },
+                //上传
+                // imageUrl:{
+                //     show:false,
+                //     key: 'imageUrl',
+                //     elemType: 'upload',
+                //     name: '图片',
+                //     type:'pictureCard',
+                //     limit:1,
+                //     config:{
+                //         // 你的配置
+                //     }
+                // },
             },
         }
     },

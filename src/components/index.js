@@ -7,3 +7,5 @@ Vue.component('ctl-dialog-form', () => import('./dialog-form/src'));
 Vue.component('ctl-table-box', () => import('./table-box'));
 //表格刷新icon
 Vue.component('refresh-icon', () => import('./refresh-icon'));
+//阿里视频点播-视频播放
+Vue.component('play-video', () => import('./form-component/upload'));

@@ -7,9 +7,11 @@ import '@/assets/styles/index.scss' // global css
 Vue.use(ElementUI);
 Vue.config.productionTip = false;
 import '@/components'
+import config from '@/module/form/config'
 // utils
 import '@/utils'
 new Vue({
   router,
   render: h => h(App)
 }).$mount("#app");
+Vue.prototype.$config = config;

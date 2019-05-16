@@ -15,20 +15,32 @@
                 :fileName="model.fileName"
                 :only="model.only"
                 :coverUrl.sync="model.coverUrl"
+                :config="model.config"
+                :model="model"
                 @uploadOnChange="event => onChange(event, model, index,formData,formModel)"
-                :disabledIs="formModel.disabled || model.disabled || disabled">
+                :disabledIs="formModel.disabled || model.disabled">
         </upload>
     </el-form-item>
 </template>
 
 <script>
+    import upload from './upload'
     export default {
         name: "index",
+        components:{
+          upload
+        },
         props:{
             formData:[Object],
             model:[Object],
             formModel:[Object],
         },
+        methods:{
+
+        },
+        created(){
+
+        }
     }
 </script>
 

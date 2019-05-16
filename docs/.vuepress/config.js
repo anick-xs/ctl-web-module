@@ -25,7 +25,6 @@ module.exports = {
                    collapsable: true,
                    children: [
                        ['/form/form', 'form'],
-                       ['/form/table', 'table'],
                        ['/form/input', 'input 输入框'],
                        ['/form/inputRange', 'inputRange 范围输入框'],
                        ['/form/select', 'select 选择器'],
@@ -37,6 +36,13 @@ module.exports = {
                        ['/form/distPicker', 'distPicker 地区选择器'],
                        ['/form/quill', 'quill 富文本'],
                        ['/form/doubleDate', 'doubleDate 双时间'],
+                   ]
+               },
+               {
+                   title:'表格',
+                   collapsable: true,
+                   children: [
+                       ['/form/table', 'table'],
                    ]
                }
            ]

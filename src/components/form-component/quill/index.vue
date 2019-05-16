@@ -12,7 +12,7 @@
                     class="ueditor"
                     ref="ueditor"
                     v-model="formData[model.key]"
-                    :config="config"
+                    :config="model.config"
                     :destroy="true"
                     :init="init"/>
         </div>
@@ -21,7 +21,7 @@
 
 <script>
     import VueUeditorWrap from 'vue-ueditor-wrap'
-    import config from './ueditor.config'
+    //import config from './ueditor.config'
     import init from './init'
 
     export default {
@@ -31,7 +31,7 @@
         },
         data(){
             return{
-                config,
+               // config,
                 ueditorValue:'',
             }
         },
@@ -43,23 +43,13 @@
                 type: [String],
             },
         },
-     /*   watch: {
-            value: {
-                handler (val) {
-                    if (this.ueditorValue !== val) {
-                        this.ueditorValue = val
-                    }
-                },
-                immediate: true
-            },
-            ueditorValue (val) {
-                this.$emit('input', val)
-            }
-        },*/
         methods: {
             init () {
                 this.$refs.ueditor.registerButton(init)
             }
+        },
+        created(){
+
         }
     }
 </script>
