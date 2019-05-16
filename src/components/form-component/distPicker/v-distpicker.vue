@@ -16,7 +16,7 @@
     </div>
 </template>
 <script>
-   // import store from '@/store'
+    // import store from '@/store'
     //let DISTRICTS = (store.state.state.login.area_tree === undefined || store.state.state.login.area_tree === null)?[]:store.state.state.login.area_tree[0].children;
     export default {
         props:{

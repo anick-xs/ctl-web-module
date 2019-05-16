@@ -12,7 +12,7 @@
                           :hideCity="model.hideCity"
                           :showCountry="model.showCountry"
                           @objData='event =>getObjData(event, model, index,formData,formModel)'
-                          :DISTRICTS="model.child"
+                          :DISTRICTS="model.child || area"
                           :disabled="model.disabled">
             </v-distpicker>
             <div class="inputAddress" v-if="model.inputKey">
@@ -26,13 +26,23 @@
 </template>
 
 <script>
+    import area from './area.json'
+    import distpicker from  './v-distpicker'
     export default {
         name: "index",
+        components:{
+            "v-distpicker":distpicker
+        },
         props:{
             formData:[Object],
             model:[Object],
             formModel:[Object],
             index:[String],
+        },
+        data(){
+          return{
+              area:area
+          }
         },
         methods:{
             getObjData(event, model, index,formData,formModel){

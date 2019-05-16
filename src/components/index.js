@@ -7,5 +7,3 @@ Vue.component('ctl-dialog-form', () => import('./dialog-form/src'));
 Vue.component('ctl-table-box', () => import('./table-box'));
 //表格刷新icon
 Vue.component('refresh-icon', () => import('./refresh-icon'));
-//地区选择器
-Vue.component('v-distpicker', () => import('./v-distpicker'));

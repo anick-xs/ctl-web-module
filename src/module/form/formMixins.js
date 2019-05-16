@@ -1,4 +1,3 @@
-import area from '@/module/form/area.json'
 export default {
     data() {
         return {
@@ -115,7 +114,6 @@ export default {
                     colName: 'regionName',
                     hideArea:true,
                     showCountry:true,
-                    child: area
                 },
                 //编辑器
               /*  quill:{
