@@ -291,7 +291,7 @@
                         bucketName: 'chetailian-public'
                     };
                     this.imageUrl = URL.createObjectURL(file.raw);
-                    this.model.config.apiGetDownUrlByKeys(data).then((res) => {
+                    this.model.config.upload.apiGetDownUrlByKeys(data).then((res) => {
 
                         if (res.status) {
                             if(this.zip){
@@ -308,7 +308,7 @@
                         fileName: response.key,
                         bucketName: 'chetailian-public'
                     };
-                    await this.model.config.apiGetDownUrlByKeys(res).then((res) => {
+                    await this.model.config.upload.apiGetDownUrlByKeys(res).then((res) => {
                         if (res.status) {
                             if(this.zip){
                                 this.fileList.push({ url:res.result.downUrl+`?imageslim`,key:response.key})
@@ -328,7 +328,7 @@
                         fileName: response.key,
                         bucketName: 'chetailian-public'
                     };
-                    await this.model.config.apiGetDownUrlByKeys(data).then((res) => {
+                    await this.model.config.upload.apiGetDownUrlByKeys(data).then((res) => {
                         if (res.status) {
                             //如果是apk，只能上传一个，重新上传就覆盖之前
                             if(this.only === 'vnd.android.package-archive'){
@@ -350,7 +350,7 @@
                         bucketName: 'chetailian-public'
                     };
                     this.imageUrl = URL.createObjectURL(file.raw);
-                    this.model.config.apiGetDownUrlByKeys(data).then((res) => {
+                    this.model.config.upload.apiGetDownUrlByKeys(data).then((res) => {
                         if (res.status) {
                             this.$emit("change", res.result.downUrl);
                         }
@@ -443,7 +443,7 @@
             },
             //获取上传token
             getUpToken(){
-                this.model.config.apiUpToken({bucketName:'chetailian-public'}).then(res=>{
+                this.model.config.upload.apiUpToken({bucketName:'chetailian-public'}).then(res=>{
                     if(res.status){
                         this.upToken.token = res.result.upToken;
                     }
