@@ -45,86 +45,86 @@
 </template>
 
 <script>
-    const files = require.context('../../form-component', true ,/\.vue$/);
     import mixins from 'ctl-web-module/src/components/mixins'
+    const files = require.context('../../form-component', true, /\.vue$/)
     export default {
-        name: "CtlDialogForm",
-        mixins:[mixins],
-        props:{
-            //弹窗表单json数据
-            dialogModel:{
-                type:[Object],
+        name: 'CtlDialogForm',
+        mixins: [mixins],
+        props: {
+            // 弹窗表单json数据
+            dialogModel: {
+                type: [Object],
                 default: () => {}
             },
-            //弹窗表单值
-            dialogFormData:{
-                type:[Object],
+            // 弹窗表单值
+            dialogFormData: {
+                type: [Object],
                 default: () => {}
             },
-            //弹窗显隐
-            dialogVisible:{
-                type:[Boolean],
-                default: () => false
-            },
-            //状态
-            disabled: {
+            // 弹窗显隐
+            dialogVisible: {
                 type: [Boolean],
                 default: () => false
             },
+            // 状态
+            disabled: {
+                type: [Boolean],
+                default: () => false
+            }
         },
-        data(){
-            return{
-                thisPint:this,  //获取this
-                form:{}, //form值
-                modules:{},  //组件
-                key:0, //key
-                dialogKey:0,
-                formDataDefault: {},
+        data () {
+            return {
+                thisPint: this, // 获取this
+                form: {}, // form值
+                modules: {}, // 组件
+                key: 0, // key
+                dialogKey: 0,
+                formDataDefault: {}
             }
         },
         watch: {
-            dialogFormData:{
-                handler(curVal){
-                    this.formData = curVal;
+            dialogFormData: {
+                handler (curVal) {
+                    this.formData = curVal
                     this.$emit('update:dialogFormData', this.form)
                 },
-                deep:true
+                deep: true
             },
-            dialogVisible:{
-                handler(curVal){
-                    if(curVal){
-                        this._createdData(this.dialogModel.formModel,this.dialogFormData)
-                    }else{
-                        this.$emit('update:dialogFormData', {});
-                        this.$refs.dialogForm.resetFields();
+            dialogVisible: {
+                handler (curVal) {
+                    if (curVal) {
+                        this._createdData(this.dialogModel.formModel, this.dialogFormData)
+                    } else {
+                        this.$emit('update:dialogFormData', {})
+                        this.$refs.dialogForm.resetFields()
                     }
                 },
-                deep:true
+                deep: true
             }
         },
-        methods:{
-            //更新key值，重新渲染
-            upKey(){
-                this.key++;
-                this._createdData(this.dialogModel.formModel,this.dialogFormData); //重新获取值
+        methods: {
+            // 更新key值，重新渲染
+            upKey () {
+                this.key++
+                this._createdData(this.dialogModel.formModel, this.dialogFormData) // 重新获取值
             },
-            //弹窗关闭事件
-            dialogClose(){
-                this.$refs.dialogForm.resetFields();
-                this.$emit('update:dialogVisible', false);
-                this.$emit('update:disabled', false);
-                this.$emit('dialogClose');
-            },
+            // 弹窗关闭事件
+            dialogClose () {
+                this.$refs.dialogForm.resetFields()
+                this.$emit('update:dialogVisible', false)
+                this.$emit('update:disabled', false)
+                this.$emit('dialogClose')
+            }
         },
-        created(){
-            //获取小组件 start
-            const modules = {};
+        created () {
+            // 获取小组件 start
+            const modules = {}
             files.keys().forEach(key => {
                 modules[key.replace(/(\.\/|\/index.vue)/g, '')] = files(key).default
-            });
-            this.modules = modules;
-            //初始化
-            this._createdData(this.dialogModel.formModel,this.dialogFormData);
+            })
+            this.modules = modules
+            // 初始化
+            this._createdData(this.dialogModel.formModel, this.dialogFormData)
         }
     }
 </script>

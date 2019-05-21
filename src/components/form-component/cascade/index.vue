@@ -17,13 +17,13 @@
 
 <script>
     export default {
-        name: "index",
-        props:{
-            formData:[Object],
-            model:[Object],
-            formModel:[Object],
+        name: 'index',
+        props: {
+            formData: [Object],
+            model: [Object],
+            formModel: [Object]
         },
-        created() {
+        created () {
 
         }
     }

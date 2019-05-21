@@ -26,19 +26,23 @@
 <script>
     import upload from './upload'
     export default {
-        name: "index",
-        components:{
-          upload
+        name: 'index',
+        components: {
+            upload
         },
-        props:{
-            formData:[Object],
-            model:[Object],
-            formModel:[Object],
+        props: {
+            formData: [Object],
+            model: [Object],
+            formModel: [Object]
         },
-        methods:{
-
+        methods: {
+            onChange (event, model, index, form, formModel) {
+                if (model.handleChange && typeof model.handleChange === 'function') {
+                    model.handleChange(event, model, index, form, formModel)
+                }
+            }
         },
-        created(){
+        created () {
 
         }
     }
