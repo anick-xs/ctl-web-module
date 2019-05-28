@@ -62,6 +62,7 @@
                 <slot name="search"></slot>
             </div>
         </el-collapse-transition>
+        <!-- 表格 -->
         <el-table
                 :data.sync="tableData"
                 max-height="600"
@@ -179,203 +180,203 @@
 
 <script>
     export default {
-        name: "ctlTableBox",
-        props:{
-            //表格头部prop数据
+        name: 'ctlTableBox',
+        props: {
+            // 表格头部prop数据
             tableModel: {
                 type: [Array],
-                default(){
+                default () {
                     return []
                 }
             },
-            popoverLabelData:{
-                type: [Array],
+            popoverLabelData: {
+                type: [Array]
             },
-            tableData:{
-                type: [Array],
+            tableData: {
+                type: [Array]
             },
-            tableShowData:{
+            tableShowData: {
                 type: [Array],
-                default(){
+                default () {
                     return []
                 }
             },
             defaultSort: [Object],
             leftButton: {
-                type: [Array],
+                type: [Array]
             },
             rightButton: {
-                type: [Array],
+                type: [Array]
             },
-            pageName:{
-                type:[String]
+            pageName: {
+                type: [String]
             },
-            //分页数据
-            pagingData:{
-                type:[Object],
-                default() {
+            // 分页数据
+            pagingData: {
+                type: [Object],
+                default () {
                     return {
-                        size:10,
-                        current:1,
-                        total:0
+                        size: 10,
+                        current: 1,
+                        total: 0
                     }
                 }
             },
-            total:[String,Number],
-            selection:{
-                type:[Boolean],
-                default() {
+            total: [String, Number],
+            selection: {
+                type: [Boolean],
+                default () {
                     return true
                 }
             },
-            index:{
-                type:[Boolean],
-                default() {
+            index: {
+                type: [Boolean],
+                default () {
                     return true
                 }
             },
-            paginationShow:{
-                type:[Boolean],
-                default() {
+            paginationShow: {
+                type: [Boolean],
+                default () {
                     return true
                 }
             },
-            loading:{
-                type:[Boolean],
+            loading: {
+                type: [Boolean],
                 default: false
             },
             selectChange: {
-                type: [Array],
+                type: [Array]
             },
 
-            objectSpanMethod:{
-                type:[Function]
+            objectSpanMethod: {
+                type: [Function]
             },
-            buttonResources:{
-                type:[Object],
-                default() {
+            buttonResources: {
+                type: [Object],
+                default () {
                     return {}
                 }
             },
-            //调试专用
-            debug:{
-                type:[Boolean],
-                default() {
+            // 调试专用
+            debug: {
+                type: [Boolean],
+                default () {
                     return false
                 }
             },
-            tooltip:{
-                type:[Boolean],
-                default() {
+            tooltip: {
+                type: [Boolean],
+                default () {
                     return false
                 }
             },
-            //搜索表单
-            searchModel:{
-                type:[Object],
-                default(){
+            // 搜索表单
+            searchModel: {
+                type: [Object],
+                default () {
                     return {}
                 }
             },
-            //是否需要过滤
-            filter:{
-                type:[Boolean],
-                default:()=>true
+            // 是否需要过滤
+            filter: {
+                type: [Boolean],
+                default: () => true
             }
         },
-        data(){
+        data () {
             return {
-                tableKey:0,
-                tableShow:this.tableShowData,
+                tableKey: 0,
+                tableShow: this.tableShowData,
                 activeNames: ['1'],
-                show:false
+                show: false
             }
         },
-        watch:{
-            tableShowData:{
-                handler(newVal,oldVal){
+        watch: {
+            tableShowData: {
+                handler (newVal, oldVal) {
                     this.tableShow = newVal
                 },
-                deep:true
-            },
+                deep: true
+            }
         },
-        methods:{
-            iconFun(type){
-                let btnType;
-                if(type.split('-').length>1){
+        methods: {
+            iconFun (type) {
+                let btnType
+                if (type.split('-').length > 1) {
                     btnType = type.split('-')[1]
                 }
-                switch(btnType){
-                //添加
+                switch (btnType) {
+                // 添加
                 case 'add':
-                    return 'fas fa-plus';
-                //编辑
+                    return 'fas fa-plus'
+                // 编辑
                 case 'edit':
-                    return 'fas fa-edit';
-                //删除
+                    return 'fas fa-edit'
+                // 删除
                 case 'delete':
-                    return 'fas fa-trash-alt';
-                //启用
+                    return 'fas fa-trash-alt'
+                // 启用
                 case 'enable':
-                    return 'fas fa-play';
-                //停用
+                    return 'fas fa-play'
+                // 停用
                 case 'disable':
-                    return 'fas fa-stop-circle';
-                //发布
+                    return 'fas fa-stop-circle'
+                // 发布
                 case 'release':
-                    return 'fas fa-cloud-upload-alt';
-                //发布
+                    return 'fas fa-cloud-upload-alt'
+                // 发布
                 case 'cancel':
-                    return 'fas fa-window-close';
-                //撤回
+                    return 'fas fa-window-close'
+                // 撤回
                 case 'revoke':
-                    return 'fas fa-undo';
-                //上传
+                    return 'fas fa-undo'
+                // 上传
                 case 'upload':
-                    return 'fas fa-upload';
-                //下载
+                    return 'fas fa-upload'
+                // 下载
                 case 'download':
-                    return 'fas fa-download';
-                //下载模板
+                    return 'fas fa-download'
+                // 下载模板
                 case 'template':
-                    return 'fas fa-download';
-                //下载模板
+                    return 'fas fa-download'
+                // 下载模板
                 case 'setting':
-                    return 'fas fa-tools';
+                    return 'fas fa-tools'
                 }
             },
-            handleSizeChange(val) {     //每页显示多少行
+            handleSizeChange (val) { // 每页显示多少行
                 // this.pagingData.p = 1;
                 // this.pagingData.s = val;
-                //兼容
-                this.pagingData.current = 1;
-                this.pagingData.size = val;
-                this.$emit('update:pagingData',this.pagingData);
-                this.$emit('refreshTable');
+                // 兼容
+                this.pagingData.current = 1
+                this.pagingData.size = val
+                this.$emit('update:pagingData', this.pagingData)
+                this.$emit('refreshTable')
             },
-            handleCurrentChange(val) {  //当前页
+            handleCurrentChange (val) { // 当前页
                 // this.pagingData.p = val;
-                this.pagingData.current = val;
-                this.$emit('update:pagingData',this.pagingData);
-                this.$emit('refreshTable');
+                this.pagingData.current = val
+                this.$emit('update:pagingData', this.pagingData)
+                this.$emit('refreshTable')
             },
-            selectChangeFun(sels){
-                this.$emit('update:selectChange',sels);
+            selectChangeFun (sels) {
+                this.$emit('update:selectChange', sels)
             },
-            refreshTableFun(){
-                this.$emit('refreshTable');
+            refreshTableFun () {
+                this.$emit('refreshTable')
             },
-            refreshPopover(){
-                this.$emit('refreshPopover',this.tableShow);
+            refreshPopover () {
+                this.$emit('refreshPopover', this.tableShow)
             },
-            collapseChange(val){
+            collapseChange (val) {
                 this.show = !this.show
             }
         },
         created () {
 
         },
-        mounted(){
+        mounted () {
 
         }
     }

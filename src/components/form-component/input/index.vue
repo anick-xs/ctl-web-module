@@ -11,7 +11,7 @@
                   :rows="model.rows"
                   :maxlength="model.maxlength"
                   v-model.trim="formData[model.key]"
-                  :placeholder="'请输入'+model.name"
+                  :placeholder="model.placeholder || ('请输入'+model.name)"
                   :disabled="formModel.disabled || model.disabled"
                   :clearable="!formModel.disabled">
         </el-input>
@@ -20,24 +20,24 @@
 
 <script>
     export default {
-        name: "index",
-        props:{
-            formData:[Object],
-            model:[Object],
-            formModel:[Object],
+        name: 'index',
+        props: {
+            formData: [Object],
+            model: [Object],
+            formModel: [Object]
         },
-        watch:{
-            formData:{
-                handler(val){
-                    //如果是number类型,强制转换
-                    if(this.model.modelType === 'number'){
-                        this.formData[this.model.key] = parseInt(val[this.model.key]);
+        watch: {
+            formData: {
+                handler (val) {
+                    // 如果是number类型,强制转换
+                    if (this.model.modelType === 'number') {
+                        this.formData[this.model.key] = parseInt(val[this.model.key])
                     }
                 },
-                deep:true
+                deep: true
             }
         },
-        created() {
+        created () {
 
         }
     }
