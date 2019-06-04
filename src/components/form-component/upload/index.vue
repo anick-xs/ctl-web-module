@@ -33,14 +33,15 @@
         props: {
             formData: [Object],
             model: [Object],
-            formModel: [Object]
+            formModel: [Object],
+            index:[String,Number]
         },
         methods: {
-            onChange (event, model, index, form, formModel) {
+            onChange (event, model, index,formData,formModel) {
                 if (model.handleChange && typeof model.handleChange === 'function') {
-                    model.handleChange(event, model, index, form, formModel)
+                    model.handleChange(event, model, index,formData,formModel)
                 }
-            }
+            },
         },
         created () {
 

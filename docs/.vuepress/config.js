@@ -36,6 +36,7 @@ module.exports = {
                        ['/form/distPicker', 'distPicker 地区选择器'],
                        ['/form/quill', 'quill 富文本'],
                        ['/form/doubleDate', 'doubleDate 双时间'],
+                       ['/form/upload', 'upload 上传'],
                    ]
                },
                {

@@ -1,7 +1,8 @@
-let config = {};
+import { getDownUrlByKeys, upToken } from './api'
+let config = {}
 
 // 富文本配置
-config.ueditor ={
+config.ueditor = {
     UEDITOR_HOME_URL: '/UEditor/',
     // 编辑器不自动被内容撑高
     autoHeightEnabled: false,
@@ -27,12 +28,13 @@ config.ueditor ={
         'print', 'preview', 'searchreplace', 'drafts', 'help'
     ]],
     // 最大字符数
-    maximumWords:65535,
-    zIndex:2000
-};
-
+    maximumWords: 65535,
+    zIndex: 2000
+}
 // 上传配置
-
-
+config.upload = {
+    apiGetDownUrlByKeys: getDownUrlByKeys,
+    apiUpToken: upToken
+}
 
 export default config

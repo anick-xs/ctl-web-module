@@ -13,7 +13,7 @@
                 :popper-append-to-body="false"
                 v-model="formData[model.key]"
                 @change="event => onChange(event, model, index,formData,formModel)"
-                :placeholder="'请选择'+model.name"
+                :placeholder="model.placeholder || ('请选择'+model.name)"
                 :disabled="model.disabled"
                 :prop="model.key">
             <el-option v-for=" (opt,index) in model.child "
