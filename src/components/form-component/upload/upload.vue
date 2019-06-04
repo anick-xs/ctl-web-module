@@ -211,7 +211,6 @@
 
                         //以下是对最大图片的修改，不是对所有的页面都使用，尤其是基本资料的页面，1个以上图集的问题。。
                         if(this.limit&&this.fileList.length===this.limit){
-                            console.log(document.querySelector('.dialog .el-upload--picture-card'))
                             this.$nextTick(() => {
                                 document.getElementsByClassName('el-upload--picture-card')[0].style.display = 'none'
                                 if(document.querySelector('.dialog .el-upload--picture-card')){
