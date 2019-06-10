@@ -85,7 +85,7 @@
         watch: {
             dialogFormData: {
                 handler (curVal) {
-                    this.formData = curVal
+                    this.form = curVal
                     this.$emit('update:dialogFormData', this.form)
                 },
                 deep: true
