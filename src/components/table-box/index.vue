@@ -4,6 +4,7 @@
             <div class="btn-left">
                 <template v-for="btn in leftButton">
                     <el-button  v-if=" btn.elemType === 'button' &&  ( buttonResources[btn.id] || debug )"
+                                v-resource
                                 :loading="btn.loading"
                                 :size="btn.size"
                                 :icon="iconFun(btn.id) || 'fa '+ 'fa-'+btn.icon"
@@ -16,6 +17,7 @@
                     <a :key="btn.id" v-if=" btn.elemType === 'buttonLink' &&  ( buttonResources[btn.id] || debug )"
                         :href="btn.url" target="_blank">
                         <el-button
+                                v-resource
                                 :loading="btn.loading"
                                 :size="btn.size"
                                 :icon="iconFun(btn.id)"
@@ -26,6 +28,7 @@
                         </el-button>
                     </a>
                     <el-upload
+                            v-resource
                             :key="btn.id"
                             style="margin:0 10px;display: inline-block;"
                             :headers="btn.headers"
@@ -45,6 +48,7 @@
             <div class="btn-right">
                 <template v-for="btn in rightButton">
                     <el-button
+                            v-resource
                             v-if=" btn.elemType === 'output' &&   ( buttonResources[btn.id] || debug )"
                             :size="btn.size"
                             @click="btn.method()"
