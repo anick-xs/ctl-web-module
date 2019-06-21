@@ -31,7 +31,7 @@
                  * 表格盒子
                  * */
                 selectChange:[],
-                tableData:[],
+                tableData:[{subject: '科目一', name: '科目一视频',readFlag: true},{subject: '科目二', name: '科目二视频',readFlag: false}],
                 loading:false,
                 pagingData:{},
                 //表格-按钮
@@ -98,6 +98,8 @@
                     {
                         prop: 'subject',
                         label: '科目',
+                        showType: 'bold',
+                        typeFlag: 'readFlag'
                     },
                     {
                         prop: 'name',

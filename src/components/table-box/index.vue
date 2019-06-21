@@ -140,6 +140,11 @@
                         <div v-if="col.showType==='img'">
                             <img :src="scope.row[col.prop]" width="40" height="40">
                         </div >
+                        <!--加粗-->
+                        <div v-else-if="col.showType ==='bold'">
+                            <div v-if="scope.row[col.typeFlag]">{{scope.row[col.prop]}}</div>
+                            <div style="font-weight: bold;"  v-else>{{scope.row[col.prop]}}</div>
+                        </div >
                         <div v-else-if="col.showType==='html'">
                             <div v-html="scope.row[col.prop]"></div>
                         </div>
