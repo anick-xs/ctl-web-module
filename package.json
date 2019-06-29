@@ -1,6 +1,6 @@
 {
   "name": "ctl-web-module",
-  "version": "0.3.1",
+  "version": "0.4.1",
   "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",

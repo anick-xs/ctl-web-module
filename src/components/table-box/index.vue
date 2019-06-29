@@ -158,8 +158,23 @@
                         </div>
                         <div v-else >
                             <div  v-if="col.formatter" v-html="col.formatter(scope.row[col.prop],scope,scope.row,scope.column) || '-'"></div>
-                            <div v-else >
+                            <!--<div v-else >
                                 <span v-if="scope.row[col.prop]=== 0">0</span>
+                                <span v-else>{{scope.row[col.prop] ? scope.row[col.prop]: '-'}}</span>
+                            </div>-->
+                            <div v-else >
+                                <!-- 加个这个行内样式是为了解决table设置了tooltip属性省略号显示不正常的问题， 同时element.scss文件也有相应的样式改动 -->
+                                <span v-if="col.tooltip"
+                                      :style="{
+                                        overflow:'hidden',
+                                        'white-space': 'nowrap',
+                                        'text-overflow': 'ellipsis',
+                                        'width': (col.width ?  col.width + 'px' : '80px'),
+                                        'display' : 'inline-block'
+                                    }">
+                                    {{scope.row[col.prop] ? scope.row[col.prop]: '-'}}
+                                </span>
+                                <span v-else-if="scope.row[col.prop]=== 0">0</span>
                                 <span v-else>{{scope.row[col.prop] ? scope.row[col.prop]: '-'}}</span>
                             </div>
                         </div>
