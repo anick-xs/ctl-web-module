@@ -98,8 +98,6 @@
                     {
                         prop: 'subject',
                         label: '科目',
-                        showType: 'bold',
-                        typeFlag: 'readFlag'
                     },
                     {
                         prop: 'name',
@@ -113,6 +111,8 @@
                         prop: 'clickRate',
                         label: '点击量',
                         tooltip: true,
+                        showType: 'bold',
+                        typeFlag: 'readFlag',
                         width: 200
                     },
                     {

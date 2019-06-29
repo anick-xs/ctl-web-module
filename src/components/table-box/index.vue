@@ -140,10 +140,27 @@
                         <div v-if="col.showType==='img'">
                             <img :src="scope.row[col.prop]" width="40" height="40">
                         </div >
-                        <!--加粗-->
+                        <!--加粗 用于考场运营端工作台消息列表  特殊处理-->
                         <div v-else-if="col.showType ==='bold'">
-                            <div v-if="scope.row[col.typeFlag]">{{scope.row[col.prop]}}</div>
-                            <div style="font-weight: bold;"  v-else>{{scope.row[col.prop]}}</div>
+                            <div v-if="scope.row[col.typeFlag]" :style="{
+                                        overflow:'hidden',
+                                        'white-space': 'nowrap',
+                                        'text-overflow': 'ellipsis',
+                                        'width': (col.width ?  col.width + 'px' : '80px'),
+                                        'display' : 'inline-block'
+                                        }">{{scope.row[col.prop]}}</div>
+                            <div :style="{
+                                        overflow:'hidden',
+                                        'white-space': 'nowrap',
+                                        'text-overflow': 'ellipsis',
+                                        'width': (col.width ?  col.width + 'px' : '80px'),
+                                        'display' : 'inline-block',
+                                        'font-weight':'bold'
+                                    }"  v-else>
+
+		                            <span v-if="scope.row[col.prop]=== 0">0</span>
+		                            <span v-else>{{scope.row[col.prop] ? scope.row[col.prop]: '-'}}</span>
+                            </div>
                         </div >
                         <div v-else-if="col.showType==='html'">
                             <div v-html="scope.row[col.prop]"></div>
