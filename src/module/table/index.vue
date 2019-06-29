@@ -31,7 +31,10 @@
                  * 表格盒子
                  * */
                 selectChange:[],
-                tableData:[{subject: '科目一', name: '科目一视频',readFlag: true,clickRate: '数据在排序时所使用排序策略的轮转顺序，仅当 sortable 为 true 时有效。需传入一个数组，随着用户点击表头，该列依次按照数组中元素的顺序进行排序'},{subject: '科目二', name: '科目二视频',readFlag: false}],
+                tableData:[
+                    {subject: '科目一', name: '科目一视频',readFlag: false,clickRate: '数据在排序时所使用排序策略的轮转顺序，仅当 sortable 为 true 时有效。需传入一个数组，随着用户点击表头，该列依次按照数组中元素的顺序进行排序'},
+                    {subject: '科目一', name: '科目一视频',readFlag: true,clickRate: '数据在排序时所使用排序策略的轮转顺序，仅当 sortable 为 true 时有效。需传入一个数组，随着用户点击表头，该列依次按照数组中元素的顺序进行排序'},
+                ],
                 loading:false,
                 pagingData:{},
                 //表格-按钮
