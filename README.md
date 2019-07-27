@@ -1,6 +1,6 @@
 # ctl-web-module
 
-前端组件库，基于vue+element-ui封装的公共组件库。
+前端组件库，基于vue+element-ui封装的公共组件库，通过配置动态渲染表单表格组件。
 
 组件文档：http://ops.chetailian.net/ui/docs/
 
