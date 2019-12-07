@@ -2,9 +2,9 @@
 
 前端组件库，基于vue+element-ui封装的公共组件库，通过配置动态渲染表单表格组件。
 
-组件文档：http://ops.chetailian.net/ui/docs/
+组件文档：http://anick.top/ui/docs/
 
-组件列子：http://ops.chetailian.net/ui/module/demo/form
+组件列子：http://anick.top/ui/module/
 
 ``` bash
 #设置npm源
